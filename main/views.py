@@ -72,6 +72,11 @@ def set_handler(user, message):
         if message['text'] == 'Chiqish':
             message = 'Assosiy menyu'
             sentmessage(user, message, markup=check_admin(user, message))
+            try:
+                sertifikat = Sertificats.objects.get(ser_id='1')
+                sertifikat.delete()
+            except:
+                pass
             user.user_status = ""
             user.save()
     except:
